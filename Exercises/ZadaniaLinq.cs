@@ -67,13 +67,13 @@ public sealed class ZadaniaLinq
     public IEnumerable<string> Zadanie04_PierwszyPrzedmiotAnalityczny()
     {
         var kategoria = "Analytics";
-        return new List<string>
-        {
+        return
+        [
             DaneUczelni.Przedmioty
                 .Where(p => p.Kategoria.Equals(kategoria))
                 .Select(p => $"{p.Nazwa} + {p.DataStartu}")
                 .FirstOrDefault($"Przedmiot o kategorii {kategoria} nie istnieje.")
-        };
+        ];
     }
 
     /// <summary>
@@ -90,7 +90,11 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie05_CzyIstniejeNieaktywneZapisanie()
     {
-        throw Niezaimplementowano(nameof(Zadanie05_CzyIstniejeNieaktywneZapisanie));
+        // var liczbaNieaktywnychZapisow = DaneUczelni.Zapisy.Count(z => !z.CzyAktywny) == 0;
+        // if (liczbaNieaktywnychZapisow) return ["Tak"];
+        // return ["Nie"];
+
+        return [DaneUczelni.Zapisy.Any(z => !z.CzyAktywny) ? "Tak" : "Nie"];
     }
 
     /// <summary>
