@@ -30,7 +30,8 @@ public static class DaneUczelni
             new Student { Id = 5, NumerIndeksu = "s30105", Imie = "Olga", Nazwisko = "Maj", Email = "olga.maj@uni.local", Miasto = "Wroclaw", DataUrodzenia = new DateTime(2001, 7, 26) },
             new Student { Id = 6, NumerIndeksu = "s30106", Imie = "Pawel", Nazwisko = "Kurek", Email = "pawel.kurek@uni.local", Miasto = "Poznan", DataUrodzenia = new DateTime(2000, 12, 14) },
             new Student { Id = 7, NumerIndeksu = "s30107", Imie = "Lena", Nazwisko = "Adamska", Email = "lena.adamska@uni.local", Miasto = "Warsaw", DataUrodzenia = new DateTime(2002, 3, 30) },
-            new Student { Id = 8, NumerIndeksu = "s30108", Imie = "Karol", Nazwisko = "Wysocki", Email = "karol.wysocki@uni.local", Miasto = "Lublin", DataUrodzenia = new DateTime(2001, 2, 20) }
+            new Student { Id = 8, NumerIndeksu = "s30108", Imie = "Karol", Nazwisko = "Wysocki", Email = "karol.wysocki@uni.local", Miasto = "Lublin", DataUrodzenia = new DateTime(2001, 2, 20) },
+            new Student { Id = 9, NumerIndeksu = "s30109", Imie = "Karol", Nazwisko = "Nowak", Email = "karol.nowak@uni.local", Miasto = "Lublin", DataUrodzenia = new DateTime(2000, 6, 11) }
         ]);
 
         Prowadzacy.AddRange(

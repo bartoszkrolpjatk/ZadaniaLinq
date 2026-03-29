@@ -66,7 +66,14 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie04_PierwszyPrzedmiotAnalityczny()
     {
-        throw Niezaimplementowano(nameof(Zadanie04_PierwszyPrzedmiotAnalityczny));
+        var kategoria = "Analytics";
+        return new List<string>
+        {
+            DaneUczelni.Przedmioty
+                .Where(p => p.Kategoria.Equals(kategoria))
+                .Select(p => $"{p.Nazwa} + {p.DataStartu}")
+                .FirstOrDefault($"Przedmiot o kategorii {kategoria} nie istnieje.")
+        };
     }
 
     /// <summary>
