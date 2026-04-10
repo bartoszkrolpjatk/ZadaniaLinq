@@ -177,7 +177,12 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie10_DrugaStronaPrzedmiotow()
     {
-        throw Niezaimplementowano(nameof(Zadanie10_DrugaStronaPrzedmiotow));
+        var pageSize = 2;
+        var pageIndex = 1;
+        return DaneUczelni.Przedmioty
+            .Skip(pageSize * pageIndex)
+            .Take(pageSize)
+            .Select(p => $"{p.Nazwa} {p.Kategoria}");
     }
 
     /// <summary>
