@@ -244,7 +244,7 @@ public sealed class ZadaniaLinq
             .GroupJoin(DaneUczelni.Zapisy,
                 p => p.Id,
                 z => z.PrzedmiotId,
-                (p, zapisyNaPrzedmiot) => new {p.Nazwa, Count = zapisyNaPrzedmiot.Count()})
+                (p, zapisyNaPrzedmiot) => new { p.Nazwa, Count = zapisyNaPrzedmiot.Count() })
             .Where(e => e.Count > 0)
             .Select(e => $"{e.Nazwa} {e.Count}");
     }
@@ -277,7 +277,7 @@ public sealed class ZadaniaLinq
         //         })
         //     .Where(x => x.Srednia > 0)
         //     .Select(x => $"{x.Nazwa}, {x.Srednia}");
-        
+
         return DaneUczelni.Przedmioty
             .Join(DaneUczelni.Zapisy,
                 p => p.Id,
@@ -322,7 +322,13 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie16_NajwyzszaOcenaKazdegoStudenta()
     {
-        throw Niezaimplementowano(nameof(Zadanie16_NajwyzszaOcenaKazdegoStudenta));
+        return DaneUczelni.Studenci
+            .GroupJoin(DaneUczelni.Zapisy,
+                s => s.Id,
+                z => z.StudentId,
+                (s, zapisy) => new { s.Imie, s.Nazwisko, MaksymalnaOcena = zapisy.Max(z => z.OcenaKoncowa) })
+            .Where(e => e.MaksymalnaOcena != null)
+            .Select(e => $"{e.Imie} {e.Nazwisko} {e.MaksymalnaOcena}");
     }
 
     /// <summary>
@@ -340,7 +346,16 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Wyzwanie01_StudenciZWiecejNizJednymAktywnymPrzedmiotem()
     {
-        throw Niezaimplementowano(nameof(Wyzwanie01_StudenciZWiecejNizJednymAktywnymPrzedmiotem));
+        return DaneUczelni.Studenci
+            .GroupJoin(DaneUczelni.Zapisy,
+                s => s.Id,
+                z => z.StudentId,
+                (s, zapisy) => new
+                {
+                    s.Imie, s.Nazwisko, Count = zapisy.Count(z => z.CzyAktywny)
+                })
+            .Where(e => e.Count > 1)
+            .Select(e => $"{e.Imie} {e.Nazwisko} {e.Count}");
     }
 
     /// <summary>
