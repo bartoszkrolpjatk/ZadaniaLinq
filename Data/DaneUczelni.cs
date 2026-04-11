@@ -64,7 +64,7 @@ public static class DaneUczelni
             new Zapis { Id = 6, StudentId = 3, PrzedmiotId = 5, DataZapisu = new DateTime(2026, 2, 23), OcenaKoncowa = null, CzyAktywny = true },
             new Zapis { Id = 7, StudentId = 4, PrzedmiotId = 2, DataZapisu = new DateTime(2026, 2, 24), OcenaKoncowa = 3.0, CzyAktywny = false },
             new Zapis { Id = 8, StudentId = 4, PrzedmiotId = 6, DataZapisu = new DateTime(2026, 2, 26), OcenaKoncowa = null, CzyAktywny = true },
-            new Zapis { Id = 9, StudentId = 5, PrzedmiotId = 3, DataZapisu = new DateTime(2026, 2, 27), OcenaKoncowa = 4.0, CzyAktywny = true },
+            new Zapis { Id = 9, StudentId = 5, PrzedmiotId = 3, DataZapisu = new DateTime(2026, 2, 27), OcenaKoncowa = null, CzyAktywny = true },
             new Zapis { Id = 10, StudentId = 6, PrzedmiotId = 4, DataZapisu = new DateTime(2026, 2, 28), OcenaKoncowa = 4.5, CzyAktywny = true },
             new Zapis { Id = 11, StudentId = 7, PrzedmiotId = 1, DataZapisu = new DateTime(2026, 3, 1), OcenaKoncowa = null, CzyAktywny = true },
             new Zapis { Id = 12, StudentId = 7, PrzedmiotId = 5, DataZapisu = new DateTime(2026, 3, 2), OcenaKoncowa = 5.0, CzyAktywny = true },
