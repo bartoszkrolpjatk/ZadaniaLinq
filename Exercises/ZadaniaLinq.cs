@@ -373,7 +373,8 @@ public sealed class ZadaniaLinq
     public IEnumerable<string> Wyzwanie02_PrzedmiotyStartujaceWKwietniuBezOcenKoncowych()
     {
         return DaneUczelni.Przedmioty
-            .Where(p => p.DataStartu is { Month: 4, Year: 2026 }) //to samo co p.DataStartu.Month == 4 && p.DataStartu.Year == 2026
+            .Where(p => p.DataStartu is
+                { Month: 4, Year: 2026 }) //to samo co p.DataStartu.Month == 4 && p.DataStartu.Year == 2026
             .GroupJoin(DaneUczelni.Zapisy,
                 p => p.Id,
                 z => z.PrzedmiotId,
@@ -397,7 +398,20 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Wyzwanie03_ProwadzacyISredniaOcenNaIchPrzedmiotach()
     {
-        throw Niezaimplementowano(nameof(Wyzwanie03_ProwadzacyISredniaOcenNaIchPrzedmiotach));
+        return DaneUczelni.Prowadzacy
+            .GroupJoin(DaneUczelni.Przedmioty,
+                pr => pr.Id,
+                p => p.ProwadzacyId,
+                (pr, przedmioty) => new
+                {
+                    pr.Imie, pr.Nazwisko,
+                    OcenyKoncowe = przedmioty
+                        .SelectMany(p => DaneUczelni.Zapisy
+                            .Where(z => p.Id == z.PrzedmiotId && z.OcenaKoncowa.HasValue)
+                            .Select(z => z.OcenaKoncowa.Value)
+                        )
+                })
+            .Select(e => $"{e.Imie} {e.Nazwisko}: {e.OcenyKoncowe.DefaultIfEmpty(0).Average()}");
     }
 
     /// <summary>
