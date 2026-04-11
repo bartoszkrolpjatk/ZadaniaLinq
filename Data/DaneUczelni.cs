@@ -39,7 +39,8 @@ public static class DaneUczelni
             new Prowadzacy { Id = 1, Imie = "Ewa", Nazwisko = "Morawska", Katedra = "Data Engineering", DataZatrudnienia = new DateTime(2018, 10, 1) },
             new Prowadzacy { Id = 2, Imie = "Piotr", Nazwisko = "Jaworski", Katedra = "Cloud Solutions", DataZatrudnienia = new DateTime(2020, 2, 15) },
             new Prowadzacy { Id = 3, Imie = "Marta", Nazwisko = "Lewandowska", Katedra = "Business Analytics", DataZatrudnienia = new DateTime(2017, 9, 1) },
-            new Prowadzacy { Id = 4, Imie = "Adam", Nazwisko = "Sowa", Katedra = "Software Design", DataZatrudnienia = new DateTime(2019, 5, 10) }
+            new Prowadzacy { Id = 4, Imie = "Adam", Nazwisko = "Sowa", Katedra = "Software Design", DataZatrudnienia = new DateTime(2019, 5, 10) },
+            new Prowadzacy { Id = 5, Imie = "Tomasz", Nazwisko = "Michałowski", Katedra = "Programming", DataZatrudnienia = new DateTime(1965, 3, 14) }
         ]);
 
         Przedmioty.AddRange(
