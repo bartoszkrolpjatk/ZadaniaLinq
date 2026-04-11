@@ -49,7 +49,8 @@ public static class DaneUczelni
             new Przedmiot { Id = 3, Nazwa = "Analiza Danych w C#", Kategoria = "Analytics", Ects = 6, ProwadzacyId = 3, DataStartu = new DateTime(2026, 4, 1), DataZakonczenia = new DateTime(2026, 7, 10) },
             new Przedmiot { Id = 4, Nazwa = "Chmura dla Programistow", Kategoria = "Cloud", Ects = 5, ProwadzacyId = 2, DataStartu = new DateTime(2026, 4, 10), DataZakonczenia = new DateTime(2026, 7, 15) },
             new Przedmiot { Id = 5, Nazwa = "Bazy Danych Aplikacyjnych", Kategoria = "Databases", Ects = 6, ProwadzacyId = 1, DataStartu = new DateTime(2026, 5, 5), DataZakonczenia = new DateTime(2026, 7, 25) },
-            new Przedmiot { Id = 6, Nazwa = "Testowanie Oprogramowania", Kategoria = "Quality", Ects = 4, ProwadzacyId = 4, DataStartu = new DateTime(2026, 3, 22), DataZakonczenia = new DateTime(2026, 6, 18) }
+            new Przedmiot { Id = 6, Nazwa = "Testowanie Oprogramowania", Kategoria = "Quality", Ects = 4, ProwadzacyId = 4, DataStartu = new DateTime(2026, 3, 22), DataZakonczenia = new DateTime(2026, 6, 18) },
+            new Przedmiot { Id = 7, Nazwa = "Architektura systemów", Kategoria = ".NET", Ects = 4, ProwadzacyId = 4, DataStartu = new DateTime(2026, 2, 10), DataZakonczenia = new DateTime(2026, 10, 3) }
         ]);
 
         Zapisy.AddRange(

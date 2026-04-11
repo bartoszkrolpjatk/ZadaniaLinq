@@ -240,7 +240,13 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie13_GrupowanieZapisowWedlugPrzedmiotu()
     {
-        throw Niezaimplementowano(nameof(Zadanie13_GrupowanieZapisowWedlugPrzedmiotu));
+        return DaneUczelni.Przedmioty
+            .GroupJoin(DaneUczelni.Zapisy,
+                p => p.Id,
+                z => z.PrzedmiotId,
+                (p, zapisyNaPrzedmiot) => new {p.Nazwa, Count = zapisyNaPrzedmiot.Count()})
+            .Where(e => e.Count > 0)
+            .Select(e => $"{e.Nazwa} {e.Count}");
     }
 
     /// <summary>
